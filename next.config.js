@@ -1,15 +1,19 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const withPWA = require('next-pwa')
-const isProd = process.env.NODE_ENV === 'production'
+/* eslint-disable @typescript-eslint/no-var-requires */
+/** @type {import('next').NextConfig} */
 
-module.exports = withPWA({
-  swcMinify: true,
-  experimental: {
-    // Enables the styled-components SWC transform
-    styledComponents: true
-  },
-  pwa: {
-    dest: 'public',
-    disable: !isProd
-  }
+const runtimeCaching = require('next-pwa/cache')
+
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  runtimeCaching,
+  buildExcludes: [/middleware-manifest.json$/],
+  disable: process.env.NODE_ENV === 'development'
 })
+
+const nextConfig = withPWA({
+  reactStrictMode: true,
+  swcMinify: true
+})
+module.exports = nextConfig
