@@ -22,14 +22,14 @@ const Countdown: React.ForwardRefRenderFunction<ICountdown, CountdownProps> = (
     if (onFinish && seconds === 0 && minutes === 0) {
       onFinish()
     }
-  }, [seconds, minutes])
+  }, [seconds, minutes, onFinish])
 
   useImperativeHandle(
     ref,
     () => ({
       handleChange
     }),
-    []
+    [handleChange]
   )
 
   return <S.ContainerCountdown>{formattedTime}</S.ContainerCountdown>

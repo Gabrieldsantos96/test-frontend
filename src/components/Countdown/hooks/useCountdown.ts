@@ -39,7 +39,7 @@ export const useCountdown = ({
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [startWhen])
+  }, [durationTimeInSeconds, startWhen])
 
   return {
     minutes,
