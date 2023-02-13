@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
 import { ItemProps } from 'components/types'
 
-const API_URL = 'http://localhost:3333/api'
+const API_URL = 'http://127.0.0.1:3333/api'
 
 function axiosCreate(): AxiosInstance {
   const baseApi = axios.create({
