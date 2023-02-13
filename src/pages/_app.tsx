@@ -5,8 +5,17 @@ import CustomToastContainer from 'utils/CustomToastContainer'
 import 'react-toastify/dist/ReactToastify.css'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
+import { useEffect, useState } from 'react'
 
 function App({ Component, pageProps }: AppProps) {
+  const [isOpen, setIsOpen] = useState(false)
+  useEffect(() => {
+    setIsOpen(true)
+  }, [])
+
+  if (!isOpen) {
+    return null
+  }
   return (
     <>
       <ThemeProvider theme={theme}>

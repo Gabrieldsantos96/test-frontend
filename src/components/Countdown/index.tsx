@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useImperativeHandle, forwardRef, useEffect } from 'react'
 
 import { useCountdown, UseCountdownProps } from './hooks/useCountdown'
@@ -22,14 +23,14 @@ const Countdown: React.ForwardRefRenderFunction<ICountdown, CountdownProps> = (
     if (onFinish && seconds === 0 && minutes === 0) {
       onFinish()
     }
-  }, [seconds, minutes, onFinish])
+  }, [seconds, minutes])
 
   useImperativeHandle(
     ref,
     () => ({
       handleChange
     }),
-    [handleChange]
+    []
   )
 
   return <S.ContainerCountdown>{formattedTime}</S.ContainerCountdown>
