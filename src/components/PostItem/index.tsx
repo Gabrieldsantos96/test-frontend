@@ -26,11 +26,7 @@ const PostItem = ({
       onDragOver={(e) => e.preventDefault()}
     >
       <S.TrashIconWrapper>
-        <BsFillTrashFill
-          onClick={() => onClickChange(id)}
-          role="button"
-          size={20}
-        />
+        <BsFillTrashFill size={20} />
       </S.TrashIconWrapper>
 
       {children}

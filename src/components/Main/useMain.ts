@@ -128,7 +128,6 @@ export function useMain(props: ArticleProps) {
   }
 
   const onFinish = async () => {
-    showToast('As informações foram salvas', 'success')
     countdownRef.current?.handleChange(5)
     const data = [...items]
     const { paragraph, title } = inputValues
@@ -143,6 +142,7 @@ export function useMain(props: ArticleProps) {
 
     try {
       await baseApi.putArticleByID(props.id, items)
+      showToast('As informações foram salvas', 'success')
     } catch {
       showToast('Não possível salvar as alterações', 'error')
     }
